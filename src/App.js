@@ -82,7 +82,7 @@ export default function App() {
        <div className="App">
        
        <TableList />
-       
+       <TableList />
        
      </div>
     </>
