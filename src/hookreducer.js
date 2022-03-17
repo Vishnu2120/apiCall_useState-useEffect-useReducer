@@ -7,7 +7,7 @@ const initialState = {
     error: ''  
 }  
   
-const reduce = (state, action) => {  
+export const reduce = (state, action) => {  
     switch (action.type) {  
         case 'OnSuccess':  
             return {  
@@ -26,7 +26,7 @@ const reduce = (state, action) => {
             return state  
     }  
 } 
-function useReducerApp() {  
+function UseReducerApp() {  
     const [state, dispatch] = useReducer(reduce, initialState)  
   
     useEffect(() => {  
@@ -37,16 +37,17 @@ function useReducerApp() {
             .catch(error => {  
                 dispatch({ type: 'OnFailure' })  
             })  
+
+            console.log('-->',state)
     }, [])  
   
     return (  
         <div> 
-           
             {state.loading ? 'Loading!! Please wait' : state.user.email}  
             {state.error ? state.error : null}  
         </div>  
     )  
 }  
   
-export default useReducerApp;   
+export default UseReducerApp;   
   
